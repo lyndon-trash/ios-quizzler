@@ -10,11 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var question: UILabel!
+    @IBOutlet weak var trueButton: UIButton!
+    @IBOutlet weak var falseButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        question.text = "Question?"
     }
 
-
+    @IBAction func pressAnswer(_ sender: UIButton) {
+        if (sender == trueButton) {
+            question.text = "Answer: True"
+        } else {
+            question.text = "Answer: False"
+        }
+    }
+    
 }
 
