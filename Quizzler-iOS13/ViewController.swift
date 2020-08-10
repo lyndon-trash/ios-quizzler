@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,10 @@ class ViewController: UIViewController {
     @IBAction func pressAnswer(_ sender: UIButton) {
         if (sender == trueButton) {
             question.text = "Answer: True"
+            progressBar.progress = 0.25
         } else {
             question.text = "Answer: False"
+            progressBar.progress = 0.75
         }
     }
     
