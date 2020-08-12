@@ -42,9 +42,9 @@ class ViewController: UIViewController {
         let correctAnswer = quiz[questionNumber].answer
         
         if userAnswer == correctAnswer {
-            print("Correct !")
+            sender.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         } else {
-            print("Wrong X")
+            sender.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         }
         
         if (questionNumber+1 < quiz.count) {
@@ -53,11 +53,15 @@ class ViewController: UIViewController {
             questionNumber = 0
         }
         
-        updateView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.updateView()
+        }
     }
     
     func updateView() {
         question.text = quiz[questionNumber].text
+        trueButton.backgroundColor = UIColor.clear
+        falseButton.backgroundColor = UIColor.clear
     }
     
 }
