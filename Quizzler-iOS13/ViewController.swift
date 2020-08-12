@@ -38,13 +38,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func pressAnswer(_ sender: UIButton) {
-        if (sender == trueButton) {
-            //question.text = "Answer: True"
-            //progressBar.progress = 0.25
-            
+        let userAnswer = sender == trueButton ? "True" : "False"
+        let correctAnswer = quiz[questionNumber].answer
+        
+        if userAnswer == correctAnswer {
+            print("Correct !")
         } else {
-            //question.text = "Answer: False"
-            //progressBar.progress = 0.75
+            print("Wrong X")
         }
         
         if (questionNumber+1 < quiz.count) {
