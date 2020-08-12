@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         question.text = "Question?"
+        updateView()
     }
 
     @IBAction func pressAnswer(_ sender: UIButton) {
@@ -53,7 +54,7 @@ class ViewController: UIViewController {
             questionNumber = 0
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.updateView()
         }
     }
@@ -62,6 +63,7 @@ class ViewController: UIViewController {
         question.text = quiz[questionNumber].text
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
+        progressBar.progress = Float(questionNumber + 1) / Float(quiz.count)
     }
     
 }
